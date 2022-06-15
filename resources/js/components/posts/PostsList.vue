@@ -7,13 +7,28 @@
                 <div class="card-header">
                     {{post.title}}
                 </div>
-                <div class="card-body">
-                    <p class="card-title">
-                        <span v-for="tag in post.tags" :key="tag.id" class="badge" :style="`background-color:${tag.color}`">{{tag.label}}</span>
-                    </p>
-                    <p class="card-text">
-                        {{post.content}}
-                    </p>
+                <div class="card-body d-flex">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                                <img :src="`${post.image}`" alt="`${post.title}`" class="img-fluid">
+                                <div>
+                                    <span v-for="tag in post.tags" :key="tag.id" class="badge"
+                                        :style="`background-color:${tag.color}`">{{tag.label}}</span>
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <p class="card-text article">
+                                    {{post.content}}
+                                </p>
+                                <button class="btn btn-primary">Leggi</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
                 </div>
             </div>
         </div>
@@ -54,5 +69,15 @@ import Loader from '../Loader.vue';
 </script>
 
 <style scoped>
+    img{
+        max-width: 70%;
+        max-height: 80%;
+    }
 
+    .article{
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 </style>
