@@ -2618,10 +2618,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5902,14 +5898,10 @@ var render = function () {
             _vm._l(_vm.posts, function (post) {
               return _c(
                 "div",
-                { key: post.id, staticClass: "card text-center" },
+                { key: post.id, staticClass: "card text-center my-4" },
                 [
                   _c("div", { staticClass: "card-header" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(post.title) +
-                        "\n            "
-                    ),
+                    _c("h4", [_vm._v(_vm._s(post.title))]),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "card-body d-flex" }, [
@@ -5926,12 +5918,13 @@ var render = function () {
                           _vm._v(" "),
                           _c(
                             "div",
+                            { staticClass: "mt-3" },
                             _vm._l(post.tags, function (tag) {
                               return _c(
                                 "span",
                                 {
                                   key: tag.id,
-                                  staticClass: "badge",
+                                  staticClass: "badge mx-1 text-white",
                                   style: "background-color:" + tag.color,
                                 },
                                 [_vm._v(_vm._s(tag.label))]

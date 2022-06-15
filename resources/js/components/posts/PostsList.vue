@@ -3,17 +3,17 @@
         <!-- loader -->
         <Loader v-if="isLoading" />
         <div v-if="posts.length">
-            <div class="card text-center" v-for="post in posts" :key="post.id">
+            <div class="card text-center my-4" v-for="post in posts" :key="post.id">
                 <div class="card-header">
-                    {{post.title}}
+                    <h4>{{post.title}}</h4>                   
                 </div>
                 <div class="card-body d-flex">
                     <div class="container">
                         <div class="row">
                             <div class="col-4">
                                 <img :src="`${post.image}`" alt="`${post.title}`" class="img-fluid">
-                                <div>
-                                    <span v-for="tag in post.tags" :key="tag.id" class="badge"
+                                <div class="mt-3">
+                                    <span v-for="tag in post.tags" :key="tag.id" class="badge mx-1 text-white"
                                         :style="`background-color:${tag.color}`">{{tag.label}}</span>
                                 </div>
                             </div>
@@ -25,10 +25,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
                 </div>
             </div>
         </div>
