@@ -29,29 +29,40 @@
             </div>
         </div>
         <p v-else>Non ci sono articoli</p>
+        <Pagination :pagination="pagination"/>
     </div>
 </template>
 
 <script>
 import axios from 'axios';
 import Loader from '../Loader.vue';
+import Pagination from '../Pagination.vue';
 
     export default{
         name: "PostsList",
         components: {
-            Loader
+            Loader,
+            Pagination
         },
         data(){
             return{
                 posts: [],
                 isLoading: true,
+                pagination: {}
             }
         },
         methods: {
             getPosts(){
                 axios.get("http://127.0.0.1:8000/api/posts")
                     .then((res)=>{
-                        this.posts = res.data.posts;
+                        const {data, current_page, last_page} = res.data.posts;
+
+                        this.posts = data;
+
+                        this.pagination = {
+                            lastPage: last_page,
+                            currentPage: current_page
+                        }
                     }).then(()=>{
                         console.log('terminato il caricamento dei posts')
                         this.isLoading = false;

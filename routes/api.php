@@ -19,14 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //localhost:8080/api/test
-Route::get('/test', function(){
-    $name = ['Valentino', 'Andrea', 'Marco'];
-    $frutti = ['mela', 'pera', 'banana'];
-
-    return response()->json(compact('name', 'frutti'));
-});
 
 
 Route::namespace('Api')->group(function(){
     Route::get('posts', 'PostController@index');
+    Route::get('posts/{id}', 'PostController@show');
 });
